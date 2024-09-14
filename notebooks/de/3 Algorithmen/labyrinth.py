@@ -2,7 +2,6 @@
 
 ## Imports
 import random
-import time
 from colorama import init
 from colorama import Fore
 
