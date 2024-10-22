@@ -1,6 +1,6 @@
 import random
 
-class Mahlzeit:
+class Produkt:
 
     adjektive = [
         "Matschepampig",
@@ -152,11 +152,6 @@ class Mahlzeit:
 
     @classmethod
     def generiere(cls, anzahl: int=3):
-
-        if anzahl < 2:
-            raise ValueError(
-                "Parameter 'anzahl' sollte 2 oder groesser sein!"
-            )
         
         adjektive_list = list(cls.adjektive)
         adjektive = []
@@ -164,9 +159,165 @@ class Mahlzeit:
             n = random.randint(0, len(adjektive_list) - 1)
             adjektive.append(adjektive_list.pop(n))
 
-        return " ".join(
-            [
-                "-".join(adjektive),
-                random.choice(cls.mahlzeiten)
-            ]
-        )
+        if len(adjektive):
+            return " ".join(
+                [
+                    "-".join(adjektive),
+                    random.choice(cls.mahlzeiten)
+                ]
+            )
+        else:
+            return random.choice(cls.mahlzeiten)
+
+
+class AbstraktesObject:
+
+    attribute = [None]
+
+    @classmethod
+    def generiere(cls):
+        return random.choice(cls.attribute)
+
+
+    
+
+class Person(AbstraktesObject):
+    attribute = [
+        "Opa",
+        "Meine Katze",
+        "Deine Mudder",
+        "Bro",
+        "Taylor Swift",
+        "Greta Thunberg",
+        "Christiano Ronaldo",
+        "Bernd das Brot",
+        "Mahatma Ghandi",
+        "Mein Chiropraktiker",
+        "Donald Trump",
+        "Billie Eilish",
+        "Ariana Grande",
+        "Bibi",
+        "Selena Gomez",
+        "Der Papst",
+        "Der Bundestrainer",
+        "Julian Wirtz",
+        "Angela Merkel"
+    ]
+
+
+class Verb(AbstraktesObject):
+    attribute = [
+        "schmatzt", 
+        "mümmelt",
+        "liebt" 
+        "knabbert", 
+        "schlürft", 
+        "nascht", 
+        "mampft",
+        "umschwirrt"
+        "kostet", 
+        "ext",
+        "kaut",
+        "schaufelt",
+        "schnurrt",
+        "klaut",
+        "verputzt",
+        "schnabuliert",
+        "beißt",
+        "quält sich mit",
+        "stopft",
+        "schmatzt genüsslich",
+        "zwiebelt",
+        "zerlegt"
+    ]
+
+
+class Ort(AbstraktesObject):
+    attribute = [
+        "auf dem Klo",
+        "in der Badewanne",
+        "auf einem Einhorn reitend",
+        "während einer Achterbahnfahrt",
+        "unter Wasser im Pool",
+        "auf einem Wolkenkratzerdach",
+        "im Flugzeug während der Landung",
+        "auf einem Heißluftballon",
+        "im Kühlschrank stehend",
+        "auf einem Trampolin",
+        "im Fahrstuhl feststeckend",
+        "im Kinderkarussell",
+        "im Tonstudio",
+        "in einem Zirkuszelt",
+        "auf einem Pferd reitend",
+        "in einem U-Boot",
+        "auf einem Surfbrett im Ozean",
+        "im Weltall mit schwebendem Ketchup",
+        "auf einem Kamel in der Wüste",
+        "im Freizeitpark auf der Geisterbahn",
+        "in der Sauna bei 100 Grad",
+        "beim Zahnarzt im Wartezimmer",
+        "in einem Heißluftballon über den Alpen",
+        "auf einer Wiese voller Schafe",
+        "in einem Bällebad für Kinder",
+        "auf dem Weihnachtsmarkt im Schnee",
+        "auf einer Skipiste in voller Fahrt",
+        "beim Yoga in der 'Baum'-Position",
+        "auf dem Rücksitz eines Polizeiautos",
+        "bei einer Beerdigung",
+        "während einer romantischen Bootsfahrt",
+        "mitten auf einer Bühne bei einem Theaterstück",
+        "auf einem schaukelnden Piratenschiff",
+        "im Unterricht",
+        "auf dem Festival",
+        "im Hinterhof"
+    ]
+
+class Begruendung(AbstraktesObject):
+    attribute = [
+        "wegen dem herrlich kribbelnden Gefühl im Magen",
+        "weil das Kind dann einfach mal die Klappe hält",
+        "denn es regt die Darmflora an",
+        "weil er es liebt, wenn der Hintern Kirmes feiert",
+        "weil es ein Freifahrtschein für die Seele ist",
+        "weil es an die Kindheit erinnern",
+        "weil es Superkräfte entfaltet",
+        "weil die Knattergeräusche beim Stuhlganz einfach unverwechselbar sind",
+        "denn es ist ein Lied für seine Geschmacksnerven",
+        "weil er zum Skat spielen einlädt",
+        "wegen der geheimen Zutat, die unsichtbar macht",
+        "weil es mehr Liebe enthält als jeder Liebesfilm",
+        "weil es einfach hypnotisch wirkft",
+        "denn hier gibt es immer eine Portion Glück obendrauf",
+        "weil sein Partner beim Essen keine blöden Fragen stellt",
+        "wegen der magischen Gewürze, die den Alltag vertreiben",
+        "weil es dazu anregt, auf dem Tisch zu tanzen",
+        "wegen der sagenhaften Kombination von Geschmack und Geräusch",
+        "weil er es mit seinen besten Freunden teilen kann",
+        "weil es von allem anderen schlechten ablenkt",
+        "weil es wie ein Feuerwerk für den Verdauungstrakt ist",
+        "wegen der unsichtbaren Energie, die sie weckt",
+        "denn die Essenspausen werden ein wahres Abenteuer",
+        "weil der Duft wie ein Magnet wirkt",
+        "wegen der Würze, die seine Probleme vertreibt",
+        "wegen des unverwechselbaren Geschmacks, der an Einlauf erinnert",
+        "weil es hilft die Ex zu vergessen",
+        "weil es die Stärke eines Bullen verleiht",
+        "denn es verwischt die Grenzen von gutem und schlechtem Geschmack",
+        "denn einer geht immer noch rein",
+        "weil sowieso alles egal ist",
+        "denn morgen ist auch noch ein Tag",
+        "denn man lebt nur einmal",
+        "weil es die Verstopfung lösst",
+        "denn ohne Qual ist langweilig",
+        "weil es sonst schlecht wird"
+    ]
+
+
+# Beispiel:
+#print(
+#    "Hunger? Kommt zu uns! \n" +\
+#    Person.generiere() + " " +\
+#    Verb.generiere() + " " + Produkt.generiere(3) +\
+#    " am Liebsten " + Ort.generiere() +\
+#    ", ...\n... " + Begruendung.generiere() + "."
+#)
