@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-wegkosten = [
+lebenspunkte = [
     ["Start", "a", 5],
     ["a", "b", 6],
     ["b", "c", 2],
@@ -23,12 +23,13 @@ wegkosten = [
     ["c", "f", 2],
     ["f", "m", 4],
     ["m", "Magier", 3],
-    ["f", "o", 5],
+    ["f", "o", 3],
     ["o", "p", 3],
     ["p", "q", 6],
     ["q", "r", 5],
     ["c", "e", 3],
     ["e", "g", 4],
+    ["e", "o", 2],
     ["g", "Hexe", 2],
     ["g", "r", 5],
     ["r", "v", 8],
@@ -39,14 +40,14 @@ wegkosten = [
     ["z", "Schatz", 3]
 ]
 
-for weg in wegkosten:
+for weg in lebenspunkte:
     start, end, kosten = weg
     exec(f"{start}_{end} = {kosten}")
     exec(f"{end}_{start} = {kosten}")
 
 
-wegkosten = pd.DataFrame(
-    wegkosten,
+lebenspunkte = pd.DataFrame(
+    lebenspunkte,
     columns=["von", "bis", "Lebenspunkte"]
 )
 
