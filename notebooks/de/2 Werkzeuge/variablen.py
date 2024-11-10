@@ -1,4 +1,5 @@
 import pandas as pd
+import random
 
 
 lebenspunkte = [
@@ -15,7 +16,7 @@ lebenspunkte = [
     ["s", "t", 2],
     ["t", "w", 3],
     ["s", "v", 9],
-    ["l", "Riese", 1],
+    ["l", "Riese", 2],
     ["Riese", "u", 2],
     ["u", "y", 3],
     ["d", "n", 10],
@@ -51,3 +52,20 @@ lebenspunkte = pd.DataFrame(
     columns=["von", "bis", "Lebenspunkte"]
 )
 
+
+def veraendere_lebenspunkte(lebenspunkte, random_state=42):
+    random.seed(42)
+    lebenspunkte["Lebenspunkte"] = lebenspunkte["Lebenspunkte"].apply(
+        lambda x: 
+            (1000 * max(0.01, x * ( 0.5 + 1.5 * random.random()))) // 1 / 1000
+    )
+    return lebenspunkte
+
+
+def lebenspunkte_als_variablen(lebenspunkte) -> dict:
+
+    vars = {}
+    for _, row in lebenspunkte.iterrows():
+        start, end, kosten = row
+        vars[f"{start}_{end}"] = kosten
+    return vars
