@@ -54,7 +54,7 @@ lebenspunkte = pd.DataFrame(
 
 
 def veraendere_lebenspunkte(lebenspunkte, random_state=42):
-    random.seed(42)
+    random.seed(random_state)
     lebenspunkte["Lebenspunkte"] = lebenspunkte["Lebenspunkte"].apply(
         lambda x: 
             (1000 * max(0.01, x * ( 0.5 + 1.5 * random.random()))) // 1 / 1000
